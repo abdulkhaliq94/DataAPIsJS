@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Data and APIs</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <img src="" id="rainbow" width="30%"/>
+        <img src="" id="nyc" width="30%"/>
+        <img src="" id="sanfran" width="30%"/>
+        <script>
+
+            catchImages()
+            .then(response => {
+                console.log('yay');
+            })
+            .catch(error => {
+                console.log('error!');
+                console.error(error);
+            });
+
+
+            async function catchImages() {
+                const responseRainbow = await fetch('rainbow.jpg');
+                const blobRainbow = await responseRainbow.blob();
+                document.getElementById('rainbow').src = URL.createObjectURL(blobRainbow);
+
+                const responseNYC = await fetch('nyc.jpg');
+                const blobNYC = await responseNYC.blob();
+                document.getElementById('nc').src = URL.createObjectURL(blobNYC);
+                
+                const responseSanfran = await fetch('sanfran.jpg');
+                const blobSanfran = await responseSanfran.blob();
+                document.getElementById('sanfran').src = URL.createObjectURL(blobSanfran);
+            }
+        </script>
+
+
+
+        <script src="" async defer></script>
+    </body>
+</html>
