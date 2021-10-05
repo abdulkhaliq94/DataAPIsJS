@@ -38,7 +38,7 @@
 
                 const responseNYC = await fetch('nyc.jpg');
                 const blobNYC = await responseNYC.blob();
-                document.getElementById('nc').src = URL.createObjectURL(blobNYC);
+                document.getElementById('nyc').src = URL.createObjectURL(blobNYC);
                 
                 const responseSanfran = await fetch('sanfran.jpg');
                 const blobSanfran = await responseSanfran.blob();
